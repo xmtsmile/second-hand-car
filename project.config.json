@@ -11,8 +11,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.2",
-	"appid": "wx6886a6dd37249fc4",
+	"libVersion": "2.4.3",
+	"appid": "wxce46bf2e2a241fa6",
 	"projectname": "second-hand-car",
 	"isGameTourist": false,
 	"condition": {
