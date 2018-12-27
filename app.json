@@ -1,11 +1,45 @@
 {
-  "pages":[
-    "pages/index/index"
+  "pages": [
+    "pages/tab1/index/index",
+    "pages/tab2/reportCar/reportCar",
+    "pages/tab3/wantSold/wantSold"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3A3B3E",
     "navigationBarTitleText": "车多多二手车",
-    "navigationBarTextStyle":"#fff"
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#7F8389",
+    "selectedColor": "#09BB07",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/tab1/index/index",
+        "text": "首页",
+        "iconPath": "images/nav/tab1.png",
+        "selectedIconPath": "images/nav/tab1_cur.png"
+      },
+      {
+        "pagePath": "pages/tab1/index/index",
+        "text": "我要卖车",
+        "iconPath": "images/nav/tab2.png",
+        "selectedIconPath": "images/nav/tab2_cur.png"
+      },
+      {
+        "pagePath": "pages/tab1/index/index",
+        "text": "我要求购",
+        "iconPath": "images/nav/tab3.png",
+        "selectedIconPath": "images/nav/tab3_cur.png"
+      },
+      {
+        "pagePath": "pages/tab1/index/index",
+        "text": "我的",
+        "iconPath": "images/nav/tab4.png",
+        "selectedIconPath": "images/nav/tab4_cur.png"
+      }
+    ]
   }
 }

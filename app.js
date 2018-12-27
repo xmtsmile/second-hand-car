@@ -34,6 +34,11 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    sign: '',
+    qcloud: {
+      appId: "10002631",
+      bucket: "ybpimg"
+    }
   }
 })

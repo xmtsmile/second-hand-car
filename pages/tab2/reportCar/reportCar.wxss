@@ -1,0 +1,24 @@
+.car-info, .base-info, .pic-info, .btn-view {
+  background-color: #fff;
+  min-height: 100px;
+  padding: 10px;
+}
+
+.title-text {
+  display: block;
+  font-weight: 600;
+  padding: 10px 0px;
+  border-bottom: 1px solid #efefef;
+}
+
+.flex-cloumn>view {
+  flex: 1;
+}
+.uploader_input-box image{
+  width:80px;
+  height:80px;
+}
+.grey-bg{
+  background-color: #efefef !important;
+  color:#000;
+}

@@ -1,0 +1,182 @@
+swiper {
+  height: 150px;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.adv-view {
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 0px;
+}
+
+.adv-first, .adv-second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.adv-first {
+  margin-bottom: 10px;
+}
+
+.view-block {
+  width: 47%;
+  height: 70px;
+  color: #fff;
+  text-align: center;
+  line-height: 70px;
+}
+
+.adv-first1 {
+  background-color: #eaa0a0;
+}
+
+.adv-first2 {
+  background-color: #aaa2d4;
+}
+
+.adv-second1 {
+  background-color: #c2d4af;
+}
+
+.adv-second2 {
+  background-color: #d4c0af;
+}
+
+.page-container {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  margin-top:10px;
+  padding-top:5px;
+}
+
+.nav {
+  position: relative;
+  z-index: 999;
+  display: flex;
+  border-bottom: 1px solid #d1d3d4;
+  background: #fff;
+}
+
+.nav-son {
+  display: flex;
+  flex: 1;
+  text-align: left;
+  height: 40px;
+  align-items: center;
+  font-size: 14px;
+}
+.nav-title{
+  width:120px;
+  padding-left:10px;
+  font-size:15px;
+  line-height:40px;
+  font-weight: 600;
+}
+
+.icon {
+  display: inline-block;
+  border: 4px solid transparent;
+  border-top: 4px solid #9b9b9b;
+  margin-left: 5px;
+  margin-top:5px;
+}
+
+.slidedown {
+  transform: translateY(0%);
+}
+
+.nav-son.active .content {
+  color:#FF7070;
+}
+
+.nav-son.active .icon {
+  border-bottom: 4px solid #FF7070;
+  border-top: 0;
+}
+
+@keyframes slidown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.slidown {
+  display: block;
+  animation: slidown 0.2s ease-in both;
+}
+
+@keyframes slidup {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.tempheight {
+  height: 300rpx;
+  overflow-y: auto;
+}
+
+.slidup {
+  display: block;
+  animation: slidup 0.2s ease-in both;
+}
+
+.disappear {
+  display: none;
+}
+
+.sdbitem {
+  width: 179rpx;
+  text-align: center;
+  border: solid #ccc 1rpx;
+  margin: 12rpx;
+  justify-content: space-around;
+  padding: 12rpx 19rpx 12rpx 19rpx;
+}
+
+.sure-btn {
+  width: 80%;
+  margin-left:10%;
+}
+
+.dropdown-content {
+  width: 100%;
+  height: 240px;
+  background: #fff;
+  color: #666;
+  position: relative;
+  z-index: 4;
+  font-size: 14px;
+}
+
+.commanders {
+  padding: 10rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.sdbitem.active {
+  color: #FF7070;
+  border-color:#FF7070;
+}
+.car-list{
+  width:100%;
+  height:1000px;
+}

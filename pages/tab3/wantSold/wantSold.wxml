@@ -1,0 +1,24 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="report-sold">
+    <view class="group-input">
+      <text class="form-left">联系人</text>
+      <input name="contactPerson" class='brb' placeholder="请填写" type='text' />
+    </view>
+    <view class="group-input">
+      <text class="form-left">联系电话</text>
+      <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
+    </view>
+    <view class="group-input">
+      <text class="form-left">所在地区</text>
+      <picker bindchange="changeRegin" mode="region" value="{{region}}">
+        <view wx:if="{{region[0] !== ''}}">{{region[0]}} - {{region[1]}} - {{region[2]}}</view>
+        <view wx:else>请选择</view>
+      </picker>
+    </view>
+    <view class="textarea-input">
+      <text class="form-left">求购信息</text>
+      <textarea auto-height maxlength="-1" placeholder="请填写求购信息" />
+    </view>
+     <button formType="submit" class="big-btn">发布</button>
+  </view>
+</form>
