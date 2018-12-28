@@ -1,4 +1,5 @@
 const app = getApp()
+var API = require('../../lib/api.js');
 
 Page({
 
@@ -26,9 +27,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    API.post('query', (res) => {
+      console.log('请求成功', res)
+    })
   },
+  //选择照片
+  choose: function () {
+    API['imgUpload']().then(res => {
+      this.setData({ arr: res })
+    })
 
+  }
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

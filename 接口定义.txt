@@ -1,0 +1,266 @@
+字典 车型 cartype
+{
+  cartype:'',//不限
+  cartype:'jc',//轿车
+  cartype:'yycsuv',//越野车SUV
+  cartype:'mbc',//面包车
+  cartype:'hc',//货车
+  cartype:'pkc',//皮卡车
+  cartype:'mpv',//MPV
+}
+字典价格 money 字段string
+{
+  money:'',//不限
+  money:'10000',//一万以内
+  money:'10000-20000',//1万-2万之内
+}
+
+我要卖车信息 查询接口 /car/query
+methods post
+请求参数 json
+{
+      cartype: '', //默认所有车的类型 必填 否
+      money:'',//价格默认值null     必填 否
+}
+响应数据json
+{
+  success : true,
+  data :[
+    {
+      cartype:''车型
+      creatTime:''发布时间
+      personSee:''多少人已看,
+      success:true交易是否完成
+      .....
+    }
+  ]
+}
+我要卖车信息 单个列表详情 /car/details
+methods get
+请求参数 json
+{
+    wechatNumber :''//微信号
+}
+响应数据json
+{
+success : true,
+data :[
+  {
+    cartype:''车型
+    creatTime:''发布时间
+    personSee:''多少人已看,
+    success:true交易是否完成
+  .....
+  }
+]
+}
+我要卖车信息 发布接口  /car/add
+
+请求参数 json
+{
+    title:'',//宝贝标题
+    keyWord:''//关键词
+    brightSpot:'',//宝贝亮点
+    money:'',//宝贝售价
+    phone:''//联系电话
+
+    brandModel:''//品牌与型号
+    displacement:''车辆排量
+    transmissionCase:''//变速箱 手动  自动
+    registerDate:'2018-01-01'注册日期
+    carYearInspection:'2018-01-01',车辆年检到
+    carInsurance:'2018-01-01'车辆保险到
+    cartype:''车型，
+    seeCarAddress:''看车地址
+    carDescribe:''车辆描述
+
+    imgs:[src,src]//实拍照片，
+
+    wechatNumber :''//微信号
+}
+
+我要卖车信息 删除接口  /car/delete
+methods delete
+请求参数 json
+{
+  _id: '', 必填 是
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
+我要卖车信息 完成  接口  /car/edit
+methods put
+请求参数 json
+{
+    _id: '', , 必填 是
+    success:true,完成  , 点击完成 必填，否则这不传这个字段
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+ ==================
+
+求购查询接口 /wtb/query
+请求参数 json
+{
+  wechatNumber: '', //默认所有求购信息  , 必填 否
+}
+响应数据json
+{
+success : true,
+data :[
+  {
+  username:'',联系人
+  phone:'',联系电话
+  location:''所在地区
+  wtbInfo:""求购信息
+  creatTime:''发布时间
+  personSee:''多少人已看
+  wechatNumber :''//微信号
+  success:true,交易完成
+  }
+]
+}
+
+我要求购发布接口
+/wtb/add
+请求参数 json
+{
+   username:'',联系人
+   phone:'',联系电话
+   location:''所在地区
+   wtbInfo:""求购信息
+   wechatNumber :''//微信号
+}
+响应数据json
+{
+  success : true,
+ data :msg
+}
+
+
+我要求购 删除接口  /wtb/delete
+methods delete
+请求参数 json
+{
+_id: '', 必填 是
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
+我要求购信息 完成  接口  /wtb/edit
+methods put
+请求参数 json
+{
+_id: '', , 必填 是
+success:true,完成  , 点击完成 必填，否则这不传这个字段
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
+
+==========================
+轮播图查询  /banner
+methods get
+请求参数无
+响应数据json
+{
+success : true,
+data :msg
+}
+轮播图添加  /banner
+methods post
+请求参数 json
+{
+  imgs:[src,src]
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
+轮播图删除  /banner
+methods delete
+请求参数 json
+{
+    src:''   //必填
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
+轮播图修改  /banner
+methods put
+请求参数 json
+{
+  src:'',
+  num:1,//表示第一次轮播图
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
+
+=============================
+
+广告位招租查询  /ggw
+methods get
+请求参数无
+响应数据json
+{
+success : true,
+data :msg
+}
+广告位招租添加  /ggw
+methods post
+请求参数 json
+{
+imgs:[src,src]
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
+广告位招租删除  /ggw
+methods delete
+请求参数 json
+{
+src:''   //必填
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
+广告位招租修改  /ggw
+methods put
+请求参数 json
+{
+src:'',
+num:1,//表示第一次轮播图
+}
+响应数据json
+{
+success : true,
+data :msg
+}
+
