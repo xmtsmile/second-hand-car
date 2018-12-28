@@ -1,5 +1,5 @@
 const app = getApp()
-var API = require('../../lib/api.js');
+var API = require('../../../lib/api.js');
 
 Page({
 
@@ -37,7 +37,7 @@ Page({
       this.setData({ arr: res })
     })
 
-  }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
