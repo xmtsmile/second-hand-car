@@ -18,8 +18,10 @@ Page({
     condition1: '车型',
     condition2: '价格',
     commanders: ['不限', '轿车', '越野车/SUV', '面包车', '货车', '皮卡车', 'MPV'],
+    commander: '',
     carTypeOpen: false,
-    carTypeShow: true
+    carTypeShow: true,
+    selectValue: ''
   },
 
   /**
@@ -91,6 +93,11 @@ Page({
   selectcmditem: function (e) {
     var commander = e.target.dataset.commander
     this.setData({ commander: commander })
+  },
+  sureSelect: function() {
+    var that = this
+    console.log('ppppppp')
+    this.setData({selectValue: that.data.commander})
   },
   /**
    * 用户点击右上角分享

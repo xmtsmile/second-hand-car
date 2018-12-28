@@ -53,8 +53,8 @@ swiper {
   width: 100%;
   background: #fff;
   overflow: hidden;
-  margin-top:10px;
-  padding-top:5px;
+  margin-top: 10px;
+  padding-top: 5px;
 }
 
 .nav {
@@ -73,11 +73,12 @@ swiper {
   align-items: center;
   font-size: 14px;
 }
-.nav-title{
-  width:120px;
-  padding-left:10px;
-  font-size:15px;
-  line-height:40px;
+
+.nav-title {
+  width: 120px;
+  padding-left: 10px;
+  font-size: 15px;
+  line-height: 40px;
   font-weight: 600;
 }
 
@@ -86,7 +87,13 @@ swiper {
   border: 4px solid transparent;
   border-top: 4px solid #9b9b9b;
   margin-left: 5px;
-  margin-top:5px;
+  margin-top: 5px;
+}
+
+.icon .hasValue {
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg); /*兼容-webkit-引擎浏览器*/
+  -moz-transform: rotate(-90deg);
 }
 
 .slidedown {
@@ -94,12 +101,15 @@ swiper {
 }
 
 .nav-son.active .content {
-  color:#FF7070;
+  color: #ff7070;
 }
 
 .nav-son.active .icon {
-  border-bottom: 4px solid #FF7070;
+  border-bottom: 4px solid #ff7070;
   border-top: 0;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg); /*兼容-webkit-引擎浏览器*/
+  -moz-transform: rotate(90deg);
 }
 
 @keyframes slidown {
@@ -152,7 +162,7 @@ swiper {
 
 .sure-btn {
   width: 80%;
-  margin-left:10%;
+  margin-left: 10%;
 }
 
 .dropdown-content {
@@ -173,10 +183,11 @@ swiper {
 }
 
 .sdbitem.active {
-  color: #FF7070;
-  border-color:#FF7070;
+  color: #ff7070;
+  border-color: #ff7070;
 }
-.car-list{
-  width:100%;
-  height:1000px;
+
+.car-list {
+  width: 100%;
+  height: 1000px;
 }

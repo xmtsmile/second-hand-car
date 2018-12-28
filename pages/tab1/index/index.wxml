@@ -23,7 +23,7 @@
     <view class="nav-title">筛选</view>
     <view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listpx" data-nav="1">
       <view class="ds-line content">{{condition1}}</view>
-      <view class="icon"></view>
+      <view class="icon {{selestValue ? 'hasValue' : ''}}"></view>
     </view>
     <view class="nav-son {{shownavindex == 2? 'active' : ''}}" data-nav="2">
       <view class="ds-line content">{{condition2}}</view>
@@ -41,7 +41,7 @@
         </block>
       </view>
     </view>
-    <button class="sure-btn" type="primary" bindtap="default">确定</button>
+    <button class="sure-btn" type="primary" bindtap="sureSelect">确定</button>
   </view>
   <view class="car-list">
     dsadddddddddddd
