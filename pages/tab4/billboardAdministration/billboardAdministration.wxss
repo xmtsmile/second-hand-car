@@ -1,0 +1,59 @@
+page {
+  background-color: rgb(242, 242, 242);  /*设置背景颜色就直接在page里设置*/
+}
+
+.container {
+  width: 100%;
+}
+
+.swiper-tab {
+  width:100%;
+  text-align: center;
+  line-height: 80rpx;
+  margin-bottom: 20rpx;
+  border: 2rpx solid #1c7bf3;
+  display: flex;
+}
+
+.swiper-tab-list {
+  width: 50%;
+  color: #1c7bf3;
+}
+
+.on {
+  color: #fff;
+  background-color: #1c7bf3;
+  box-shadow: 0 0 20rpx #d1e5fd;
+}
+.item {
+  width: 100%;
+  display: none;
+}
+
+.btn-banner {
+  display: block;
+  width: 100%;
+  line-height: 150px;
+  background: #fff;
+  text-align: center;
+  margin-top:20px;
+  border:none;
+  border-radius:none;
+}
+
+.btn-ggw {
+  width: 47%;
+  height: 70px;
+  background: #fff;
+  margin: auto;
+  text-align: center;
+  line-height: 70px;
+}
+
+
+.bannerbox {
+  width: 100%;
+  background: #fff;
+  height: 150px;
+  
+}

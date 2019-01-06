@@ -28,8 +28,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    API.post('query', (res) => {
+  onLoad: function (options) {
+    API.post('query',{}, (res) => {
       console.log('请求成功', res)
     })
   },

@@ -5,7 +5,11 @@
     "pages/tab1/wantBuyInfo/wantBuyInfo",
     "pages/tab2/reportCar/reportCar",
     "pages/tab3/wantSold/wantSold",
-    "pages/tab4/index/index"
+    "pages/tab4/index",
+    "pages/tab4/myCarInfo/myCarInfo",
+    "pages/tab4/myQgInfo/myQgInfo",
+    "pages/tab4/infoAdministration/infoAdministration",
+    "pages/tab4/billboardAdministration/billboardAdministration"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -38,7 +42,7 @@
         "selectedIconPath": "images/nav/tab3_cur.png"
       },
       {
-        "pagePath": "pages/tab4/index/index",
+        "pagePath": "pages/tab4/index",
         "text": "我的",
         "iconPath": "images/nav/tab4.png",
         "selectedIconPath": "images/nav/tab4_cur.png"
