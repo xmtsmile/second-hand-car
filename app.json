@@ -1,9 +1,13 @@
 {
   "pages": [
+    "pages/tab4/index",
     "pages/tab1/index/index",
     "pages/tab2/reportCar/reportCar",
     "pages/tab3/wantSold/wantSold",
-    "pages/tab4/index"
+    "pages/tab4/myCarInfo/myCarInfo",
+    "pages/tab4/myQgInfo/myQgInfo",
+    "pages/tab4/infoAdministration/infoAdministration",
+    "pages/tab4/billboardAdministration/billboardAdministration"
   ],
   "window": {
     "backgroundTextStyle": "light",
