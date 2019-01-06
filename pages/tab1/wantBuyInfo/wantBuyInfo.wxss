@@ -1,0 +1,80 @@
+swiper {
+  height: 150px;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.adv-view {
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 0px;
+}
+
+.adv-first, .adv-second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.adv-first {
+  margin-bottom: 10px;
+}
+
+.view-block {
+  width: 47%;
+  height: 70px;
+  color: #fff;
+  text-align: center;
+  line-height: 70px;
+}
+
+.adv-first1 {
+  background-color: #eaa0a0;
+}
+
+.adv-first2 {
+  background-color: #aaa2d4;
+}
+
+.adv-second1 {
+  background-color: #c2d4af;
+}
+
+.adv-second2 {
+  background-color: #d4c0af;
+}
+
+.page-container {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  margin-top: 10px;
+  padding-top: 5px;
+}
+
+.wantbuy-list {
+  padding: 10px 10px;
+  margin-bottom: 20px;
+}
+
+.wantbuy-list-item {
+  height: 110px;
+}
+
+.car-info-bottom {
+  font-size: 14px;
+  justify-content: space-between;
+}
+.bottom-part{
+  width:40%;
+}
+.call-phone {
+  border: 1px solid #ff7070;
+  border-radius: 10px;
+  padding: 0px 5px;
+}

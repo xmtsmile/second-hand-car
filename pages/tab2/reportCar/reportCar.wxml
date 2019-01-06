@@ -1,5 +1,5 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <view class="car-info mt-10">
+  <view class="car-info">
     <text class="title-text">宝贝展示信息</text>
     <view class="group-input">
       <text class="form-left">宝贝标题</text>
@@ -27,15 +27,15 @@
     <text class="title-text">基本信息</text>
     <view class="first-line flex-cloumn">
       <view>
-        <text class="ft-16 dark-color">品牌</text>
+        <text class="ft-14 dark-color">品牌与型号</text>
         <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
       </view>
       <view>
-        <text class="ft-16 dark-color">型号</text>
+        <text class="ft-14 dark-color">车辆排量</text>
         <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
       </view>
       <view>
-        <text class="ft-16 dark-color">车型</text>
+        <text class="ft-14 dark-color">变速箱</text>
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
           <view class="picker">
             {{array[index]}}
@@ -45,15 +45,23 @@
     </view>
     <view class="second-line flex-cloumn">
       <view>
-        <text class="ft-16 dark-color">上牌时间</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
+        <text class="ft-14 dark-color">注册日期</text>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            {{array[index]}}
+          </view>
+        </picker>
       </view>
       <view>
-        <text class="ft-16 dark-color">行驶里程</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
+        <text class="ft-14 dark-color">车辆年检到</text>
+       <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            {{array[index]}}
+          </view>
+        </picker>
       </view>
       <view>
-        <text class="ft-16 dark-color">车身颜色</text>
+        <text class="ft-14 dark-color">车辆保险到</text>
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
           <view class="picker">
             {{array[index]}}
@@ -61,62 +69,44 @@
         </picker>
       </view>
     </view>
-    <view class="third-line flex-cloumn">
-      <view>
-        <text class="ft-16 dark-color">变速箱</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
-      </view>
-      <view>
-        <text class="ft-16 dark-color">排量</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
-      </view>
-      <view>
-        <text class="ft-16 dark-color">排放标准</text>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" placeholder="请选择">
+    <view class="third-line ds-flex">
+      <view class="car-model-distance">
+        <text class="ft-14 dark-color">车型</text>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
           <view class="picker">
             {{array[index]}}
           </view>
         </picker>
       </view>
-    </view>
-    <view class="forth-line flex-cloumn">
       <view>
-        <text class="ft-16 dark-color">过户次数</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
-      </view>
-      <view>
-        <text class="ft-16 dark-color">牌照地</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
-      </view>
-      <view>
-        <text class="ft-16 dark-color">看车地</text>
+        <text class="ft-14 dark-color">看车地址</text>
         <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
       </view>
     </view>
   </view>
   <view class="car-info mt-10">
-    <text class="title-text">车辆信息</text>
+    <text class="title-text">车辆信息 <text class="ft-14 dark-color">最多80字</text></text>
     <view class="textarea-input">
       <textarea auto-height maxlength="-1" placeholder="请填写车辆描述信息" />
     </view>
   </view>
   <view class="pic-info mt-10">
-    <text class="title-text">实拍照片 <text class="ft-14 dark-color">默认前5张同时显示为主图</text></text>
+    <text class="title-text">实拍照片</text>
     <view class="uploader_bd mt-10">
       <view class="uploader_files">
-        <block wx:for="{{imageList}}" wx:for-item="image">
+        <block wx:for="{{imageList}}" wx:for-item="image" wx:key="image">
           <view class="uploader_file">
             <image class="uploader_img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
           </view>
         </block>
       </view>
       <view class="uploader_input-box">
-        <image src="../../images/add-pic.jpg" bindtap="chooseImage"></image>
+        <image src="../../../images/add-pic.jpg" bindtap="chooseImage"></image>
       </view>
     </view>
   </view>
   <view class="btn-view">
     <button formType="submit" class="big-btn">发布</button>
-    <button formType="submit" class="big-btn grey-bg">重置照片</button>
+    <button formType="submit" class="big-btn grey-bg">删除照片</button>
   </view>
 </form>

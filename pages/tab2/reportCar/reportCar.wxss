@@ -14,11 +14,20 @@
 .flex-cloumn>view {
   flex: 1;
 }
-.uploader_input-box image{
-  width:80px;
-  height:80px;
+
+.uploader_input-box image {
+  width: 80px;
+  height: 80px;
 }
-.grey-bg{
+
+.grey-bg {
   background-color: #efefef !important;
-  color:#000;
+  color: #000;
+}
+
+.third-line {
+  padding-left:10px;
+}
+.car-model-distance{
+  padding-right:16%;
 }

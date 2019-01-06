@@ -1,0 +1,12 @@
+<view class="car-detail">
+  <image class="car-image" src="../../../images/banner/banner1.png" />
+  <view class="car-title">
+    <text class="fw-600 mb-10">丰田普拉多2016款 2.7L自动挡</text>
+    <view class="ds-flex title-detail ft-14 dark-color mt-20">
+      <view class="red"><text class="ft-18">5.88</text>万</view>
+      <view>08-20发布</view>
+      <view>35人已看</view>
+    </view>
+  </view>
+  
+</view>

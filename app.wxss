@@ -24,7 +24,17 @@ page {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding:10px;
+  padding: 10px;
+}
+
+.ds-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-sb {
+  justify-content: space-between;
+  align-content: center;
 }
 
 .group-input {
@@ -37,6 +47,16 @@ page {
 .group-input .form-left {
   width: 25%;
   margin-right: 20px;
+}
+
+.group-input .form-left-item {
+  padding: 13px 0;
+}
+
+.group-input .form-right-detail {
+  text-align: right;
+  flex-grow: 1;
+  color: #c7c7cc;
 }
 
 .group-input input, .group-input picker {
@@ -69,22 +89,77 @@ page {
   line-height: 40px;
   height: 40px;
 }
+
 .ds-line {
   display: inline-block;
 }
 
 /* font-size */
-.ft-14{
-  font-size:14px;
+
+.ft-14 {
+  font-size: 14px;
 }
-.ft-16{
-  font-size:16px;
+
+.ft-16 {
+  font-size: 16px;
 }
-.dark-color{
-  color:#808080;
+
+.ft-18 {
+  font-size: 18px;
+}
+
+.dark-color {
+  color: #808080;
+}
+
+.fw-600 {
+  font-weight: 600;
 }
 
 /* margin padding */
-.mt-10{
-  margin-top:10px;
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.tx-center {
+  text-align: center;
+}
+
+/*color*/
+
+.red {
+  color: #ff7070;
+}
+
+.yellow {
+  color: darkorange;
+}
+
+.green {
+  color: green;
 }

@@ -188,6 +188,31 @@ swiper {
 }
 
 .car-list {
-  width: 100%;
-  height: 1000px;
+  padding: 10px 10px;
+  margin-bottom: 50px;
+}
+
+.car-list-item {
+  height: 110px;
+}
+
+.car-img {
+  width: 200px;
+  height: 110px;
+}
+
+.see-border {
+  border: 1px solid #ff7070;
+  border-radius: 10px;
+  padding: 0px 5px;
+}
+
+.yel-b {
+  border: 1px solid darkorange;
+  padding: 0px 5px;
+}
+
+.gre-b {
+  border: 1px solid green;
+  padding: 0px 5px;
 }

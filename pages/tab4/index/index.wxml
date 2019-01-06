@@ -1,0 +1,10 @@
+<view class="my-center">
+  <view class="group-input">
+    <text class="form-left-item">我的卖车信息</text>
+    <text class="form-right-detail">></text>
+  </view>
+  <view class="group-input boder-b-n">
+    <text class="form-left-item">我的求购信息</text>
+    <text class="form-right-detail">></text>
+  </view>
+</view>

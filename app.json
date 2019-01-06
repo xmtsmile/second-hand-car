@@ -1,8 +1,11 @@
 {
   "pages": [
     "pages/tab1/index/index",
+    "pages/tab1/carDetail/carDetail",
+    "pages/tab1/wantBuyInfo/wantBuyInfo",
     "pages/tab2/reportCar/reportCar",
-    "pages/tab3/wantSold/wantSold"
+    "pages/tab3/wantSold/wantSold",
+    "pages/tab4/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,19 +26,19 @@
         "selectedIconPath": "images/nav/tab1_cur.png"
       },
       {
-        "pagePath": "pages/tab1/index/index",
+        "pagePath": "pages/tab2/reportCar/reportCar",
         "text": "我要卖车",
         "iconPath": "images/nav/tab2.png",
         "selectedIconPath": "images/nav/tab2_cur.png"
       },
       {
-        "pagePath": "pages/tab1/index/index",
+        "pagePath": "pages/tab3/wantSold/wantSold",
         "text": "我要求购",
         "iconPath": "images/nav/tab3.png",
         "selectedIconPath": "images/nav/tab3_cur.png"
       },
       {
-        "pagePath": "pages/tab1/index/index",
+        "pagePath": "pages/tab4/index/index",
         "text": "我的",
         "iconPath": "images/nav/tab4.png",
         "selectedIconPath": "images/nav/tab4_cur.png"

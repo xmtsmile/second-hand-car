@@ -1,0 +1,12 @@
+.car-image{
+  width:100%;
+  height:200px;
+}
+.car-title{
+  background-color: white;
+  height:70px;
+  padding:10px 10px;
+}
+.title-detail{
+  justify-content: space-between;
+}

@@ -28,61 +28,63 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     API.post('query', (res) => {
       console.log('请求成功', res)
     })
   },
   //选择照片
-  choose: function () {
+  choose: function() {
     API['imgUpload']().then(res => {
-      this.setData({ arr: res })
+      this.setData({
+        arr: res
+      })
     })
 
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-    
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    
+  onReachBottom: function() {
+
   },
   //选择车型
-  listpx: function (e) {
+  listpx: function(e) {
     if (this.data.carTypeOpen) {
       this.setData({
         carTypeOpen: false,
@@ -99,19 +101,33 @@ Page({
     console.log(e.target)
   },
   //选中车长的某个项
-  selectcmditem: function (e) {
+  selectcmditem: function(e) {
     var commander = e.target.dataset.commander
-    this.setData({ commander: commander })
+    this.setData({
+      commander: commander
+    })
   },
   sureSelect: function() {
     var that = this
     console.log('ppppppp')
-    this.setData({selectValue: that.data.commander})
+    this.setData({
+      selectValue: that.data.commander
+    })
+  },
+  seeDetail: function() {
+    wx.navigateTo({
+      url: '/pages/tab1/carDetail/carDetail',
+    })
+  },
+  wantBuyDetail: function() {
+    wx.navigateTo({
+      url: '/pages/tab1/wantBuyInfo/wantBuyInfo',
+    })
   },
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   }
 })
