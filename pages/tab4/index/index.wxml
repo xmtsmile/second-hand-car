@@ -1,10 +1,14 @@
-<view class="my-center">
-  <view class="group-input">
-    <text class="form-left-item">我的卖车信息</text>
-    <text class="form-right-detail">></text>
-  </view>
-  <view class="group-input boder-b-n">
-    <text class="form-left-item">我的求购信息</text>
-    <text class="form-right-detail">></text>
-  </view>
+<view class='my-container'>
+    <view id="1" class='group-row content-item-right brb' bindtap='go'>
+       卖车信息
+    </view>
+    <view id="2" class='group-row content-item-right brb' bindtap='go'>
+       求购信息
+    </view>
+     <view id="3" wx:if="{{adminFlag}}" class='group-row content-item-right brb'bindtap='go'>
+       信息库管理
+    </view>
+     <view id="4" wx:if="{{adminFlag}}" class='group-row content-item-right brb' bindtap='go'>
+       广告管理
+    </view>
 </view>
