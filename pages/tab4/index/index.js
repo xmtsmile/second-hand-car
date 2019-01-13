@@ -1,4 +1,4 @@
-var API = require('../../lib/api.js');
+var API = require('../../../lib/api.js');
 Page({
 
   /**
