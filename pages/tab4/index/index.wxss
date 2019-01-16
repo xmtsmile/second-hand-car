@@ -1,5 +1,12 @@
-.my-center{
-  height:95px;
-  background-color: #fff;
-  padding:0px 10px;
+/* pages/tab4/index.wxss */
+.my-container {
+  padding-left:10px;
+  background: #fff;
+}
+.group-row {
+  position: relative;
+  line-height: 45px;
+}
+.brb {
+  border-bottom:1px solid #f2f2f2;
 }

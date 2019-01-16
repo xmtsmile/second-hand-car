@@ -10,9 +10,6 @@
       </view>
     </sideslip-delete>
 
-    <sideslip-delete id="1"  binddel="doDel">
-      <view>你的元素</view>
-    </sideslip-delete>
 
     <view class="btn-banner" id="0" type='button' bindtap='addImgHandle'>
           添加图片
@@ -23,12 +20,6 @@
   </view><!--item-->
 
   <view class="item {{currentTab==1 ? 'show' : ''}}">
-   
-
-
-
-
-
 
 
     <view class="btn-ggw" id="1" type='button' bindtap='addImgHandle'>

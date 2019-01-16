@@ -1,9 +1,0 @@
-/* pages/tab4/index.wxss */
-.my-container {
-  padding-left:10px;
-  background: #fff;
-}
-.group-row {
-  position: relative;
-  line-height: 45px;
-}
