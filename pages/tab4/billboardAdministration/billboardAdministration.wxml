@@ -3,13 +3,14 @@
     <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">轮播图管理</view>
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">广告位管理</view>
   </view>
-  <view class="item {{currentTab==0 ? 'show' : ''}}">
-    <sideslip-delete id="0" del edit  binddel="doDel" btntxt="替换" bindedit="doEdit">
-      <view class="bannerbox">
-
-      </view>
+  <view class="item {{currentTab==0 ? 'show' : ''}}"> 
+   <view wx:for="{{banners}}" wx:for-index="idx" wx:for-item="item">
+       <sideslip-delete id="{{idx}}" del edit  binddel="doDel" btntxt="替换" bindedit="doEdit">
+        <view class="bannerbox">
+          <image src='{{item}}'></image>
+        </view>
     </sideslip-delete>
-
+   </view>  
 
     <view class="btn-banner" id="0" type='button' bindtap='addImgHandle'>
           添加图片

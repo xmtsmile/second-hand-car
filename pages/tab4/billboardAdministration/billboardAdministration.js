@@ -6,7 +6,7 @@ Page({
    */
   data: {
     currentTab:0,
-    banners:[],
+    banners: ['https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1319931194,1554592553&fm=173&app=25&f=JPEG?w=218&h=146&s=22A069A040023AE746947C9A0300A090'],
     ggws:[]
   },
 
@@ -21,11 +21,20 @@ Page({
   doDel(e) {
     // 点击删除
     console.log(e.target.id); // 传入的标识
+    let idx = e.target.id*1+1;
+    let banners = this.data.banners.splice(idx,1);
+    this.setData({banners}) 
     
   },
+  
   doEdit(e) {
     // 点击编辑
     console.log(e.target.id); // 传入的标识
+    console.log(e.target.id); // 传入的标识
+    let idx = e.target.id * 1 + 1;
+    let banners = this.data.banners;
+    // banners[idx] = 
+    this.setData({ banners }) 
   },
   /**  点击tab切换  **/
   swichNav: function (e) {
@@ -40,9 +49,11 @@ Page({
   },
   addImgHandle(e){
     let id = e.target.id;
+    let banners = this.data.banners;
     if(id==='0'){
-      API['imgUpload']().then(res => {
-        this.setData({ banners: res })
+      API['imgUpload']().then(res => { 
+        banners.push(res)
+        this.setData({ banners})
       })
     } else {
 
