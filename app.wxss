@@ -201,6 +201,10 @@ view {
   font-size: 14px;
 }
 
+/* .brb {
+  border-bottom:1px solid #f2f2f2;
+} */
+
 .show {
   display: block !important;
 }

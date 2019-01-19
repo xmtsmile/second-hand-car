@@ -1,5 +1,6 @@
 const app = getApp()
 var API = require('../../../lib/api.js');
+var dataHelper = require('../../../lib/utils/dataHelper.js');
 
 Page({
 
@@ -7,18 +8,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      '../../../images/banner/banner1.png',
-      '../../../images/banner/banner2.png',
-      '../../../images/banner/banner3.png'
-    ],
+    imgUrls: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
     duration: 1000,
+    advList: [],
     condition1: '车型',
     condition2: '价格',
-    commanders: ['不限', '轿车', '越野车/SUV', '面包车', '货车', '皮卡车', 'MPV'],
+    commanders: dataHelper.cartypeData,
     commander: '',
     carTypeOpen: false,
     carTypeShow: true,
@@ -29,8 +27,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    API.post('query',{}, (res) => {
-      console.log('请求成功', res)
+    API.get('getBanner',{}, (res) => {
+      this.setData({
+        imgUrls: res.data
+      })
+    })
+    API.get('getGgw', {}, (res) => {
+      console.log('pppp', res)
+      this.setData({
+        advList: res.data
+      })
     })
   },
   //选择照片

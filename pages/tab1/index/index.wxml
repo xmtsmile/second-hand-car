@@ -9,11 +9,20 @@
   <view class="adv-view">
     <view class="adv-first">
       <view class="view-block adv-first1" bindtap='wantBuyDetail'>求购信息</view>
-      <view class="view-block adv-first2">广告位招租</view>
+      <view class="view-block adv-first2">
+        <text wx:if="advList.length == 0">广告位招租</text>
+        <image wx:else :src="advList[0]"></image>
+      </view>
     </view>
     <view class="adv-second">
-      <view class="view-block adv-second1">广告位招租</view>
-      <view class="view-block adv-second2">广告位招租</view>
+      <view class="view-block adv-second1">
+        <text wx:if="advList.length === 0 || advList.length == 1">广告位招租</text>
+        <image wx:else :src="advList[1]"></image>
+      </view>
+      <view class="view-block adv-second2">
+        <text wx:if="advList.length === 0 || advList.length == 2">广告位招租</text>
+        <image wx:else :src="advList[2]"></image>
+      </view>
     </view>
   </view>
 </view>
@@ -36,13 +45,14 @@
       <view class="commanders">
         <block wx:for="{{commanders}}" wx:key="unique">
           <view class="sdbitem {{commander==item ? ' active ' : ' '}}" data-commander='{{item}}' bindtap='selectcmditem'>
-            {{item}}
+            {{item.text}}
           </view>
         </block>
       </view>
     </view>
     <button class="sure-btn" type="primary" bindtap="sureSelect">确定</button>
   </view>
+
   <view class="car-list">
     <view class="car-list-item ds-flex mb-10">
       <image class="car-img mr-10" src="../../../images/car-example.png"></image>
