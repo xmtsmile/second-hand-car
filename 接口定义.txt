@@ -39,7 +39,8 @@ methods post
 methods get
 请求参数 json
 {
-    wechatNumber :''//微信号
+    _id:'',必填
+    wechatNumber :''//微信号 能获取微信号，这填写，否则不填写
 }
 响应数据json
 {
@@ -105,7 +106,7 @@ data :msg
 }
  ==================
 
-求购查询接口 /wtb/query
+求购查询接口 /qiugou/query
 请求参数 json
 {
   wechatNumber: '', //默认所有求购信息  , 必填 否
@@ -128,7 +129,7 @@ data :[
 }
 
 我要求购发布接口
-/wtb/add
+/qiugou/add
 请求参数 json
 {
    username:'',联系人
@@ -144,7 +145,7 @@ data :[
 }
 
 
-我要求购 删除接口  /wtb/delete
+我要求购 删除接口  /qiugou/delete
 methods delete
 请求参数 json
 {
@@ -156,7 +157,7 @@ success : true,
 data :msg
 }
 
-我要求购信息 完成  接口  /wtb/edit
+我要求购信息 完成  接口  /qiugou/edit
 methods put
 请求参数 json
 {
@@ -169,6 +170,23 @@ success : true,
 data :msg
 }
 
+我要卖车信息 单个列表详情 /qiugou/details
+methods get
+请求参数 json
+{
+    _id:'',必填
+    wechatNumber :''//微信号 能获取微信号，这填写，否则不填写
+}
+响应数据json
+{
+success : true,
+data :[
+  {
+    creatTime:''发布时间
+    personSee:''多少人已看,
+  }
+]
+}
 
 ==========================
 轮播图查询  /banner
@@ -179,7 +197,7 @@ methods get
 success : true,
 data :msg
 }
-轮播图添加  /banner
+轮播图发布  /banner
 methods post
 请求参数 json
 {
@@ -204,11 +222,10 @@ data :msg
 }
 
 轮播图修改  /banner
-methods put
+methods put             备注：轮播图 点击替换》1.调用put接口，参数 src :'',》2.接口成功，在上传图片。3.替换图片
 请求参数 json
 {
   src:'',
-  num:1,//表示第一次轮播图
 }
 响应数据json
 {
@@ -252,11 +269,10 @@ data :msg
 }
 
 广告位招租修改  /ggw
-methods put
+methods put    备注：轮播图 点击替换》1.调用put接口，参数 src :'',》2.接口成功，在上传图片。3.替换图片
 请求参数 json
 {
 src:'',
-num:1,//表示第一次轮播图
 }
 响应数据json
 {
