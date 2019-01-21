@@ -7,7 +7,8 @@ Page({
   data: {
     currentTab:0,
     banners: [],
-    advList:[]
+    advList:[],
+    viewHeight: wx.getSystemInfoSync().windowHeight
   },
 
 
@@ -15,7 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) { 
-   
+    var arr = ['a','b','c'];
+    arr.splice(0,1);
+    console.log(arr);
     API.get('getBanner', {}, (res) => { 
       if (!(res && res.data[0] && res.data[0].imgs)) return;
       this.setData({
@@ -36,36 +39,67 @@ Page({
   doDel(e) {
     // 点击删除
     
-    let idx = e.target.id*1+1;
+    let idx = e.target.id*1;
+    let params = {};
+    let url = 'banner';
 
-    let params = {
-      src: this.data.banners[e.target.id]
+    if (this.data.currentTab == 0) {
+      params = {
+        src: this.data.banners[e.target.id]
+      }
+      url = 'banner';
+    } else {
+      params = {
+        src: this.data.advList[e.target.id]
+      }
+      url = 'ggwei';
     }
     
-    console.log(params);
-    API.delete('banner', params, (res) => {
-      let banners = this.data.banners.splice(idx,1);
-      this.setData({ banners }); 
+    API.delete(url, params, (res) => { 
+      if (this.data.currentTab == 0) {
+        let copyBanner = this.data.banners.slice(0);
+        copyBanner.splice(idx, 1);
+        this.setData({ banners: copyBanner });
+      } else {
+        let copyAdvList = this.data.advList.slice(0);
+        copyAdvList.splice(idx, 1);
+        this.setData({ advList: copyAdvList });
+      }
     })
     
   },
   
   doEdit(e) {
     // 点击编辑
-    let idx = e.target.id * 1 + 1;
+    let idx = e.target.id * 1 ;
     let that = this;
-    let copyBanner = that.data.banners.slice(0);
-    let params = {
-      src: copyBanner[e.target.id]
-    }
+    let params = {};
+    let url = 'banner';
     console.log(params);
     API['imgUpload']().then(res => {
       let src = res[0];
-      let banners = that.data.banners;
-      banners[idx - 1] = src;
-      that.setData({ banners });
+      if (this.data.currentTab == 0) {
+        let copyBanner = that.data.banners.slice(0);
+        let params = {
+          src: copyBanner[e.target.id]
+        };
+        url = 'banner';
+        let banners = that.data.banners;
+        banners[idx] = src;
+        that.setData({ banners });
+
+      } else { 
+        let copyAdvList = this.data.advList.slice(0);
+        params = {
+          src: copyAdvList[e.target.id]
+        }
+        url = 'ggwei';
+        let advList = that.data.advList;
+        advList[idx] = src;
+        that.setData({ advList });
+      }
       console.log('add成功');
-      API.put('banner', params, (res) => {
+      API.put(url, params, (res) => {
         console.log('del成功');
       })
     })
@@ -84,7 +118,14 @@ Page({
   },
   addImgHandle(e){
     let id = e.target.id;
-   
+    if (id === '1' && this.data.advList.length===3) {
+      wx.showModal({
+        content: '广告位已满',
+        showCancel: false
+      })
+      return;
+    }
+
     API['imgUpload']().then(res => { 
       if (id === '0') { 
         let banners = this.data.banners;

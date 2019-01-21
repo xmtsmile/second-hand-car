@@ -1,42 +1,49 @@
-<view class="container">
+<view class="bill-containter">
   <view class="swiper-tab">
     <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">轮播图管理</view>
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">广告位管理</view>
   </view>
-  <view class="item {{currentTab==0 ? 'show' : ''}}"> 
-   <view class="mb-10" wx:for="{{banners}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
-       <sideslip-delete id="{{idx}}" del edit  binddel="doDel" btntxt="替换" bindedit="doEdit">
-        <view class="bannerbox">
-          <image src='{{item}}'></image>
-        </view>
-      </sideslip-delete>
-   </view>  
 
-    <view class="btn-banner" id="0" type='button' bindtap='addImgHandle'>
-          添加图片
-    </view>
-   <view class="btn-view">
-      <button type='button' bindtap='releaseBanner' class="big-btn">发布</button>
-    </view>
-  </view><!--item-->
+ <scroll-view
+    scroll-y
+    style="height: {{viewHeight}}px;">
+        <view class="item {{currentTab==0 ? 'show' : ''}}"> 
+        <view class="mb-10" wx:for="{{banners}}" wx:for-index="idx" wx:for-item="item" wx:key="unique">
+            <sideslip-delete id="{{idx}}" del edit  binddel="doDel" btntxt="替换" bindedit="doEdit">
+              <view class="bannerbox">
+                <image src='{{item}}'></image>
+              </view>
+            </sideslip-delete>
+        </view>  
 
-  <view class="item {{currentTab==1 ? 'show' : ''}}">
+          <view class="btn-banner" id="0" type='button' bindtap='addImgHandle'>
+                添加图片
+          </view>
+        <view class="btn-view">
+            <button type='button' bindtap='releaseBanner' class="big-btn">发布</button>
+          </view>
+        </view><!--item-->
 
-    <view class="row "> 
-        <view class="btn-ggw advList mlr-auto mb-20" wx:for="{{advList}}" wx:for-index="index" wx:for-item="itemName" wx:key="key">
-          <sideslip-delete id="{{index}}" del edit  binddel="doDel" btntxt="替换" bindedit="doEdit">
-            <view class="advList-item">
-              <image src='{{itemName}}'></image>
-            </view>
-          </sideslip-delete>
-        </view>
-    </view>
+        <view class="item {{currentTab==1 ? 'show' : ''}}">
 
-    <view class="btn-ggw mlr-auto mt-20" id="1" type='button' bindtap='addImgHandle'>
-          添加图片
-    </view>
-   <view class="btn-view">
-      <button type='button' bindtap='releaseGggwei' class="big-btn">发布</button>
-    </view>
-  </view><!--item-->
+          <view class="row "> 
+              <view class="btn-ggw advList mlr-auto mb-20" wx:for="{{advList}}" wx:for-index="index" wx:for-item="itemName" wx:key="key">
+                <sideslip-delete id="{{index}}" del edit  binddel="doDel" btntxt="替换" bindedit="doEdit">
+                  <view class="advList-item">
+                    <image src='{{itemName}}'></image>
+                  </view>
+                </sideslip-delete>
+              </view>
+          </view>
+
+          <view class="btn-ggw mlr-auto mt-20" id="1" type='button' bindtap='addImgHandle'>
+                添加图片
+          </view>
+        <view class="btn-view">
+            <button type='button' bindtap='releaseGggwei' class="big-btn">发布</button>
+          </view>
+        </view><!--item-->
+    </scroll-view>
+
+  
 </view>
