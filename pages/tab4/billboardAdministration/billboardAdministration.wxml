@@ -16,7 +16,7 @@
           添加图片
     </view>
    <view class="btn-view">
-      <button type='button' class="big-btn">发布</button>
+      <button type='button' bindtap='releaseBanner' class="big-btn">发布</button>
     </view>
   </view><!--item-->
 
@@ -27,7 +27,7 @@
           添加图片
     </view>
    <view class="btn-view">
-      <button type='button' class="big-btn">发布</button>
+      <button type='button' bindtap='release' class="big-btn">发布</button>
     </view>
   </view><!--item-->
 </view>

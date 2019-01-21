@@ -6,7 +6,7 @@ Page({
    */
   data: {
     currentTab:0,
-    banners: ['https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1319931194,1554592553&fm=173&app=25&f=JPEG?w=218&h=146&s=22A069A040023AE746947C9A0300A090'],
+    banners: [],
     ggws:[]
   },
 
@@ -15,15 +15,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    API.get('getBanner', {}, (res) => {
+      this.setData({
+        banners: res.data[0].imgs
+      })
+    })
   },
 
   doDel(e) {
     // 点击删除
     console.log(e.target.id); // 传入的标识
+    
     let idx = e.target.id*1+1;
-    let banners = this.data.banners.splice(idx,1);
-    this.setData({banners}) 
+
+    let params = {
+      src: this.data.banners[idx][0]
+    }
+    
+    console.log(params);
+    // API.delete('banner', params, (res) => {
+    //   console.log(res)
+    //   let banners = this.data.banners.splice(idx, 1);
+    //   this.setData({ banners }); 
+    // })
+  
     
   },
   
@@ -50,9 +65,11 @@ Page({
   addImgHandle(e){
     let id = e.target.id;
     let banners = this.data.banners;
+    
     if(id==='0'){
       API['imgUpload']().then(res => { 
-        banners.push(res)
+        banners.concat(res)
+        console.log(banners);
         this.setData({ banners})
       })
     } else {
@@ -63,6 +80,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+  },
+  releaseBanner(){ 
+      let params = {
+        imgs:this.data.banners
+      }
+      API.post('banner',params,(res)=>{
+          console.log(res)
+      })
 
   },
 

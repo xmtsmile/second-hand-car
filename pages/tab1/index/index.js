@@ -29,7 +29,7 @@ Page({
   onLoad: function (options) {
     API.get('getBanner',{}, (res) => {
       this.setData({
-        imgUrls: res.data
+        imgUrls: res.data[0].imgs
       })
     })
     API.get('getGgw', {}, (res) => {
