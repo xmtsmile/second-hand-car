@@ -10,18 +10,18 @@
     <view class="adv-first">
       <view class="view-block adv-first1" bindtap='wantBuyDetail'>求购信息</view>
       <view class="view-block adv-first2">
-        <text wx:if="advList.length == 0">广告位招租</text>
-        <image wx:else :src="advList[0]"></image>
+        <text wx:if="{{advList.length == 0}}">广告位招租</text>
+        <image wx:else src="{{advList[0]}}"></image>
       </view>
     </view>
     <view class="adv-second">
       <view class="view-block adv-second1">
-        <text wx:if="advList.length === 0 || advList.length == 1">广告位招租</text>
-        <image wx:else :src="advList[1]"></image>
+        <text wx:if="{{advList.length === 0 || advList.length == 1}}">广告位招租</text>
+        <image wx:else src="{{advList[1]}}"></image>
       </view>
       <view class="view-block adv-second2">
-        <text wx:if="advList.length === 0 || advList.length == 2">广告位招租</text>
-        <image wx:else :src="advList[2]"></image>
+        <text wx:if="{{advList.length === 0 || advList.length == 2}}">广告位招租</text>
+        <image wx:else src="{{advList[2]}}"></image>
       </view>
     </view>
   </view>

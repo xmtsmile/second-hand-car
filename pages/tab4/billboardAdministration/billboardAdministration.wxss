@@ -45,7 +45,7 @@ page {
   width: 47%;
   height: 70px;
   background: #fff;
-  margin: auto;
+  
   text-align: center;
   line-height: 70px;
 }
@@ -56,7 +56,23 @@ page {
   background: #fff;
   height: 150px;
 }
-.bannerbox image {
+.advList-item,.advList-item image,.bannerbox image {
   width: 100%;
   height:100%;
+}
+.gallery {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.gallery::after {
+    content: '';
+    -webkit-box-flex: 999999999;
+    -webkit-flex-grow: 999999999;
+    -moz-box-flex: 999999999;
+    -ms-flex-positive: 999999999;
+    flex-grow: 999999999;
+}
+.advList {
+  flex-grow: 1;
 }

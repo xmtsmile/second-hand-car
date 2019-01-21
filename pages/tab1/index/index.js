@@ -27,17 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    API.get('getBanner',{}, (res) => {
-      this.setData({
-        imgUrls: res.data[0].imgs
-      })
-    })
-    API.get('getGgw', {}, (res) => {
-      console.log('pppp', res)
-      this.setData({
-        advList: res.data
-      })
-    })
+     this.initData();
   },
   //选择照片
   choose: function() {
@@ -55,11 +45,27 @@ Page({
 
   },
 
+  initData(){
+    API.get('getBanner', {}, (res) => { 
+      if (!(res && res.data[0] && res.data[0].imgs)) return;
+      this.setData({
+        imgUrls: res.data[0].imgs
+      })
+    })
+    API.get('getGgw', {}, (res) => {
+      
+      if (!(res && res.data[0] && res.data[0].imgs))return;
+      this.setData({
+        advList: res.data[0].imgs
+      })
+      console.log('pppp', this.data.advList) 
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.initData();
   },
 
   /**

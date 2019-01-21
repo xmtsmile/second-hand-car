@@ -32,7 +32,10 @@ swiper {
   text-align: center;
   line-height: 70px;
 }
-
+.view-block image {
+    width: 100%;
+    height:100%;
+}
 .adv-first1 {
   background-color: #eaa0a0;
 }
