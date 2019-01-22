@@ -3,24 +3,24 @@
     <text class="title-text">宝贝展示信息</text>
     <view class="group-input">
       <text class="form-left">宝贝标题</text>
-      <input name="contactPerson" class='brb' placeholder="请填写 最多14个中文长度" type='text' />
+      <input name="title" class='brb' placeholder="请填写 最多14个中文长度" type='text' />
     </view>
     <view class="group-input">
       <text class="form-left">关键词</text>
-      <input name="contactMobile" class='brb' placeholder="请填写 用/隔开" type='text' />
+      <input name="keyWord" class='brb' placeholder="请填写 用/隔开" type='text' />
     </view>
     <view class="group-input">
       <text class="form-left">宝贝亮点</text>
-      <input name="contactMobile" class='brb' placeholder="请填写 最多三个 用/隔开" type='text' />
+      <input name="brightSpot" class='brb' placeholder="请填写 最多三个 用/隔开" type='text' />
     </view>
     <view class="group-input">
       <text class="form-left">宝贝售价</text>
-      <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
+      <input name="money" class='brb' placeholder="请填写" type='text' />
       <text style="font-weight:600;">万元</text>
     </view>
     <view class="group-input boder-b-n">
       <text class="form-left">联系电话</text>
-      <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
+      <input name="phone" class='brb' placeholder="请填写" type='text' />
     </view>
   </view>
   <view class="base-info mt-10">
@@ -28,80 +28,67 @@
     <view class="first-line flex-cloumn">
       <view>
         <text class="ft-14 dark-color">品牌与型号</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
+        <input name="brandModel" class='brb' placeholder="请填写" type='text' />
       </view>
       <view>
         <text class="ft-14 dark-color">车辆排量</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
+        <input name="displacement" class='brb' placeholder="请填写" type='text' />
       </view>
       <view>
         <text class="ft-14 dark-color">变速箱</text>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view class="picker">
-            {{array[index]}}
-          </view>
+        <picker bindchange="bindPickerChange" value="{{transmissionCaseIndex}}" range="{{transmissionCaseS}}">
+          <input name="transmissionCase" disabled="disabled" value="{{transmissionCaseS[transmissionCaseIndex]}}" placeholder="请选择"></input>
         </picker>
       </view>
     </view>
     <view class="second-line flex-cloumn">
       <view>
         <text class="ft-14 dark-color">注册日期</text>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view class="picker">
-            {{array[index]}}
-          </view>
+        <picker   bindchange="registerChange"  mode="date" value="{{registerDate}}">
+           <input name="registerDate" disabled="disabled" value="{{registerDate}}" placeholder="请选择"></input>
         </picker>
       </view>
       <view>
         <text class="ft-14 dark-color">车辆年检到</text>
-       <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view class="picker">
-            {{array[index]}}
-          </view>
+        <picker   bindchange="inspectionChange"  mode="date" value="{{carYearInspection}}">
+           <input name="carYearInspection" disabled="disabled" value="{{carYearInspection}}" placeholder="请选择"></input>
         </picker>
       </view>
       <view>
         <text class="ft-14 dark-color">车辆保险到</text>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view class="picker">
-            {{array[index]}}
-          </view>
+        <picker   bindchange="insuranceChange"  mode="date" value="{{carInsurance}}">
+           <input name="carInsurance" disabled="disabled" value="{{carInsurance}}" placeholder="请选择"></input>
         </picker>
       </view>
     </view>
-    <view class="third-line ds-flex">
+    <view class="third-line flex">
       <view class="car-model-distance">
         <text class="ft-14 dark-color">车型</text>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <view class="picker">
-            {{array[index]}}
-          </view>
+        <picker bindchange="cartypeChange" value="{{cartypeIndex}}" range="{{cartypeList}}">
+            <input  disabled="disabled" value="{{cartypeList[cartypeIndex]}}" placeholder="请选择"></input>
+            <input name="cartype" disabled="disabled" value="{{CARTYPE[cartypeIndex]}}" class="hide"></input>
         </picker>
       </view>
-      <view>
+      <view class='flex1'>
         <text class="ft-14 dark-color">看车地址</text>
-        <input name="contactMobile" class='brb' placeholder="请填写" type='text' />
+        <input name="seeCarAddress" class='brb' placeholder="请填写" type='text' />
       </view>
     </view>
   </view>
   <view class="car-info mt-10">
     <text class="title-text">车辆信息 <text class="ft-14 dark-color">最多80字</text></text>
     <view class="textarea-input">
-      <textarea auto-height maxlength="-1" placeholder="请填写车辆描述信息" />
+      <textarea  name="carDescribe" auto-height maxlength="80" placeholder="请填写车辆描述信息" />
     </view>
   </view>
   <view class="pic-info mt-10">
-    <text class="title-text">实拍照片</text>
-    <view class="uploader_bd mt-10">
-      <view class="uploader_files">
-        <block wx:for="{{imageList}}" wx:for-item="image" wx:key="image">
-          <view class="uploader_file">
-            <image class="uploader_img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
-          </view>
-        </block>
+    <text class="title-text ml-10">实拍照片</text>
+    <view class="uploader_bd mt-5 flex ">
+      <view wx:if="{{imageList.length>0}}" wx:for="{{imageList}}" wx:for-item="image" wx:key="key" class="uploader_file">
+        <image class="uploader_img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
       </view>
-      <view class="uploader_input-box">
-        <image src="../../../images/add-pic.jpg" bindtap="chooseImage"></image>
+      <view class="uploader_input-box" bindtap="chooseImage">
+        
       </view>
     </view>
   </view>

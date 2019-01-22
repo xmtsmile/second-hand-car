@@ -47,7 +47,6 @@ Page({
 
   initData(){
     API.get('getBanner', {}, (res) => { 
-      console.log('banner', res) 
       if (!(res && res.data[0] && res.data[0].imgs)) return;
       this.setData({
         imgUrls: res.data[0].imgs
@@ -59,7 +58,7 @@ Page({
       this.setData({
         advList: res.data[0].imgs
       })
-      console.log('advList', this.data.advList) 
+     
     })
   },
   /**

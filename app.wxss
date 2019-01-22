@@ -224,3 +224,18 @@ view {
   margin-left: auto;
   margin-right: auto;
 }
+.hide {
+  display: none;
+}
+.flex1 {
+  flex: 1;
+}
+.pl-10 {
+  padding-left:10px;
+}
+.pr-10 {
+  padding-right:10px;
+}
+p10 {
+  padding:10px;
+}

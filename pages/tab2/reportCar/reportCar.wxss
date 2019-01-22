@@ -1,4 +1,4 @@
-.car-info, .base-info, .pic-info, .btn-view {
+.car-info, .base-info,  .btn-view {
   background-color: #fff;
   min-height: 100px;
   padding: 10px;
@@ -29,5 +29,56 @@
   padding-left:10px;
 }
 .car-model-distance{
-  padding-right:16%;
+  width: 30%;
+}
+.uploader_bd  {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding:5px;
+}
+
+.uploader_file{
+  width: 80px;
+  height:80px;
+  margin: 5px;
+}
+.uploader_file image {
+  width: 100%;
+  height:100%;
+}
+.pic-info {
+  background-color: #fff;
+}
+
+.uploader_input-box {
+    height: 78px;
+    width: 78px;
+    border:1px solid #ccc;
+    position: relative;
+    margin:5px;
+}
+.uploader_input-box::after {
+  content: '';
+  display: block;
+   width: 1px;
+   height:80%;
+   position: absolute;
+   background:#1aad19;
+   left:50%;
+   transform: translateX(-50%);
+   top:10%;
+
+}
+.uploader_input-box::before {
+  content: '';
+  display: block;
+   width: 80%;
+   height:1px;
+   position: absolute;
+   background:#1aad19;
+   left:10%;
+   transform: translateY(-50%);
+   top:50%;
+
 }
