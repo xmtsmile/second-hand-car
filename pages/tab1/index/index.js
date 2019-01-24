@@ -20,7 +20,8 @@ Page({
     commander: '',
     carTypeOpen: false,
     carTypeShow: true,
-    selectValue: ''
+    selectValue: '',
+    carData:[]
   },
 
   /**
@@ -59,6 +60,9 @@ Page({
         advList: res.data[0].imgs
       })
      
+    });
+    API.post('carQuery', {}, res => { 
+      this.setData({carData:res.data})
     })
   },
   /**

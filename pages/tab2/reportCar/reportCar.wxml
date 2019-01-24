@@ -94,6 +94,6 @@
   </view>
   <view class="btn-view">
     <button formType="submit" class="big-btn">发布</button>
-    <button formType="submit" class="big-btn grey-bg">删除照片</button>
+    <button type='button' bindtap='allDelImgs' class="big-btn grey-bg">删除照片</button>
   </view>
 </form>

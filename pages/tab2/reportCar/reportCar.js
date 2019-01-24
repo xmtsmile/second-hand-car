@@ -14,7 +14,7 @@ Page({
     carYearInspection:'',
     cartypeList: ['不限', '轿车', '越野车SUV', '面包车', '货车', '皮卡车','MPV'],
     CARTYPE,
-    imageList: ['https://upload.jianshu.io/users/upload_avatars/3407939/73366e49-edf5-43fd-a931-61be8f6afd38.png?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96', 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2849582180,2587936680&fm=27&gp=0.jpg', 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2849582180,2587936680&fm=27&gp=0.jpg','https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2849582180,2587936680&fm=27&gp=0.jpg'],
+    imageList: [],
     
   },
 
@@ -22,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(CARTYPE)
+   
   },
 
   /**
@@ -93,8 +93,12 @@ Page({
     })
   },
   chooseImage: function() {
-    var _data = {}
-    API.imgUpload(_data, function(result) {})
+    API.imgUpload().then(res=>{
+      console.log(res);
+      let imageList = this.data.imageList;
+      imageList.push(...res);
+      this.setData({imageList})
+    })
   },
   /**
    * 用户点击右上角分享
@@ -104,5 +108,31 @@ Page({
   },
   formSubmit(e) {
     console.log('eeee',e);
-  }
+    let params = e.detail.value;
+    params.imgs = this.data.imageList;
+    
+    API.post('carAdd',params,(res)=>{
+      console.log(res);
+      wx.showModal({
+        title: '提示',
+        content: '发布成功',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定');
+            wx.switchTab({
+              url: '/pages/tab1/index/index'
+            })
+          } 
+        }
+      })
+     
+    })
+
+  },
+  allDelImgs(){
+    let params = {
+      imgs:this.data.imageList
+    }
+  },
 })

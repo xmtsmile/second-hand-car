@@ -54,8 +54,8 @@
   </view>
 
   <view class="car-list">
-    <view class="car-list-item ds-flex mb-10">
-      <image class="car-img mr-10" src="../../../images/car-example.png"></image>
+    <view   wx:for="{{carData}}" wx:for-item="item" wx:key="key" class="car-list-item ds-flex mb-10">
+      <image class="car-img mr-10" v-if="item.imgs&&item.imgs[0]" src="{{item.imgs[0]}}"></image>
       <view class="car-info">
         <text class="ft-16 fw-600">长安马自达2014款高配精品</text>
         <text class="ft-14 dark-color">2016 | 4.3万公里</text>
@@ -72,25 +72,6 @@
           <view class="ft-16 red see-border" bindtap='seeDetail'>点击查看</view>
         </view>
       </view>
-    </view>
-    <view class="car-list-item ds-flex mb-10">
-      <image class="car-img mr-10" src="../../../images/car-example.png"></image>
-      <view class="car-info">
-        <text class="ft-16 fw-600">长安马自达2014款高配精品</text>
-        <text class="ft-14 dark-color">2016 | 4.3万公里</text>
-        <view class="ds-flex flex-sb mb-5 mt-5">
-          <view class="ft-14">
-            <text class="yel-b mr-10 yellow">零手续</text>
-            <text class="gre-b green">高配</text>
-          </view>
-          <view class="ft-14 dark-color">刚刚发布</view>
-        </view>
-        <view class="ds-flex flex-sb">
-          <view class="ft-16 red">
-            <text class="ft-18 fw-600">5.88</text>万</view>
-          <view class="ft-16 red see-border">点击查看</view>
-        </view>
-      </view>
-    </view>
+    </view><!--car-list-item-->
   </view>
 </view>
