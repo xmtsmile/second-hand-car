@@ -100,6 +100,10 @@ page {
   font-size: 14px;
 }
 
+.ft-12 {
+  font-size: 12px;
+}
+
 .ft-16 {
   font-size: 16px;
 }
@@ -145,7 +149,12 @@ page {
 .mt-5 {
   margin-top: 5px;
 }
-
+.mt-8 {
+  margin-top: 8px;
+}
+.mb-8 {
+  margin-bottom: 8px;
+}
 .tx-center {
   text-align: center;
 }
@@ -238,4 +247,10 @@ view {
 }
 p10 {
   padding:10px;
+}
+.cr-red {
+  color:#ff7070
+}
+.ft-normal{
+  font-weight:normal;
 }

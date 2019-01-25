@@ -1,6 +1,7 @@
 const app = getApp()
 var API = require('../../../lib/api.js');
 var dataHelper = require('../../../lib/utils/dataHelper.js');
+let util = require('../../../lib/utils/util.js');
 
 Page({
 
@@ -17,7 +18,7 @@ Page({
     condition1: '车型',
     condition2: '价格',
     commanders: dataHelper.cartypeData,
-    commander: '',
+    commander: {text:null,value:null},
     carTypeOpen: false,
     carTypeShow: true,
     selectValue: '',
@@ -61,9 +62,29 @@ Page({
       })
      
     });
-    API.post('carQuery', {}, res => { 
-      this.setData({carData:res.data})
+    
+    this.carQuery();
+  },
+  carQuery(params={}){ 
+    return new Promise((reslove,reject
+    )=>{
+      API.post('carQuery', params, res => {
+        console.log('res11', res)
+        res.data.forEach((item, index, arr) => {
+          item.createTime = util.formatTime(new Date(item.createTime))
+          this.fieldFilter(item, 'keyWord');
+          this.fieldFilter(item, 'brightSpot');
+        })
+        this.setData({ carData: res.data });
+        reslove()
+      })
     })
+   
+  },
+  fieldFilter(item,name){ 
+    if(item[name]){
+      item[name] = item[name].replace(/\s/g,'').split(/\/|\|/);
+    }  
   },
   /**
    * 生命周期函数--监听页面显示
@@ -119,15 +140,20 @@ Page({
   //选中车长的某个项
   selectcmditem: function(e) {
     var commander = e.target.dataset.commander
+    console.log(commander)
     this.setData({
       commander: commander
+
     })
   },
   sureSelect: function() {
-    var that = this
-    console.log('ppppppp')
+    var that = this;
+
     this.setData({
-      selectValue: that.data.commander
+      selestValue: that.data.commander.text,
+      carTypeOpen: false,
+      carTypeShow: true,
+      shownavindex:0
     })
   },
   seeDetail: function() {

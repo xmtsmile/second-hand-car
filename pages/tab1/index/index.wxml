@@ -31,8 +31,9 @@
   <view class="nav fw-600">
     <view class="nav-title">筛选</view>
     <view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listpx" data-nav="1">
-      <view class="ds-line content">{{condition1}}</view>
+      <view class="ds-line content cr-red">{{condition1}}</view>
       <view class="icon {{selestValue ? 'hasValue' : ''}}"></view>
+      <text class='cr-red f14 ft-normal'>{{selestValue}}</text>
     </view>
     <view class="nav-son {{shownavindex == 2? 'active' : ''}}" data-nav="2">
       <view class="ds-line content">{{condition2}}</view>
@@ -44,7 +45,7 @@
     <view class='tempheight'>
       <view class="commanders">
         <block wx:for="{{commanders}}" wx:key="unique">
-          <view class="sdbitem {{commander==item ? ' active ' : ' '}}" data-commander='{{item}}' bindtap='selectcmditem'>
+          <view class="sdbitem {{commander.value===item.value ? ' active ' : ' '}}" data-commander='{{item}}' bindtap='selectcmditem'>
             {{item.text}}
           </view>
         </block>
@@ -54,22 +55,26 @@
   </view>
 
   <view class="car-list">
-    <view   wx:for="{{carData}}" wx:for-item="item" wx:key="key" class="car-list-item ds-flex mb-10">
-      <image class="car-img mr-10" v-if="item.imgs&&item.imgs[0]" src="{{item.imgs[0]}}"></image>
-      <view class="car-info">
-        <text class="ft-16 fw-600">长安马自达2014款高配精品</text>
-        <text class="ft-14 dark-color">2016 | 4.3万公里</text>
-        <view class="ds-flex flex-sb mb-5 mt-5">
-          <view class="ft-14">
-            <text class="yel-b mr-10 yellow">零手续</text>
-            <text class="gre-b green">高配</text>
+    <view   wx:for="{{carData}}" wx:for-item="item" wx:key="key" class="car-list-item ds-flex ">
+      <view class='carimgbox'>
+        <image class="car-img mr-10" v-if="item.imgs&&item.imgs[0]" src="{{item.imgs[0]}}"></image>
+      </view>
+      <view class="car-info ">
+        <view class="ft-14 fw-600 f14">{{item.title}}</view>
+        <view class="ft-12 dark-color mt-5  flex">
+          <text decode="{{true}}" wx:for="{{item.keyWord}}" wx:for-item="kwbar" wx:for-index="kwbarIndex" wx:key="kwbarkey">{{kwbar}}&ensp; {{(kwbarIndex!==item.keyWord.length-1)?'|':''}}&ensp; </text>
+        </view>
+        <view class="ds-flex flex-sb mb-10 mt-10">
+          <view class="ft-12">
+             <text decode="{{true}}"  wx:for="{{item.brightSpot}}" wx:for-item="bsbar" 
+             wx:for-index="bsIndex" wx:key="bskey" class="{{bsIndex%2==0?'yel-b yellow':'gre-b green'}} mr-10 " >{{bsbar}} </text>
           </view>
-          <view class="ft-14 dark-color">刚刚发布</view>
+          <view class="ft-12 dark-color">{{item.createTime}}</view>
         </view>
         <view class="ds-flex flex-sb">
-          <view class="ft-16 red">
-            <text class="ft-18 fw-600">5.88</text>万</view>
-          <view class="ft-16 red see-border" bindtap='seeDetail'>点击查看</view>
+          <view class="ft-14 red">
+            <text class="ft-16 fw-600">{{item.money}}</text>万</view>
+          <view class="ft-12 red see-border" data-id="{{item._id}}" bindtap='seeDetail'>点击查看</view>
         </view>
       </view>
     </view><!--car-list-item-->
