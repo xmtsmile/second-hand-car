@@ -254,3 +254,6 @@ p10 {
 .ft-normal{
   font-weight:normal;
 }
+.relative {
+  position: relative
+}

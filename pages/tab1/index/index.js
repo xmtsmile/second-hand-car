@@ -20,9 +20,12 @@ Page({
     commanders: dataHelper.cartypeData,
     commander: {text:null,value:null},
     carTypeOpen: false,
-    carTypeShow: true,
     selectValue: '',
-    carData:[]
+    carData:[],
+    moneys:{},
+    moneyRangeList: dataHelper.moneyRange,
+    moneyRange: null,
+    moneyOpen:false
   },
 
   /**
@@ -121,44 +124,86 @@ Page({
 
   },
   //选择车型
-  listpx: function(e) {
-    if (this.data.carTypeOpen) {
-      this.setData({
-        carTypeOpen: false,
-        carTypeShow: true,
-        shownavindex: 0
-      })
-    } else {
-      this.setData({
-        carTypeOpen: true,
-        carTypeShow: false,
-        shownavindex: e.currentTarget.dataset.nav
-      })
+  listpx: function(e) { 
+    let index = e.currentTarget.dataset.nav;
+    if(index==='1') {
+      if (this.data.carTypeOpen) {
+        this.setData({
+          carTypeOpen: false,
+          shownavindex: 0,
+          moneyOpen: false
+        })
+      } else {
+        this.setData({
+          carTypeOpen: true,
+          moneyOpen: false,
+          shownavindex: e.currentTarget.dataset.nav
+        })
+      }
+    } else { 
+      
+      if (this.data.moneyOpen) {
+        this.setData({
+          carTypeOpen:false,
+          moneyOpen: false,
+          shownavindex: 0
+        })
+      } else {
+        this.setData({
+          carTypeOpen: false,
+          moneyOpen: true,
+          shownavindex: 2
+        })
+      }
     }
-    console.log(e.target)
+   
   },
   //选中车长的某个项
-  selectcmditem: function(e) {
+  selectcmditem: function(e) { 
     var commander = e.target.dataset.commander
     console.log(commander)
     this.setData({
       commander: commander
 
     })
+  
+  },
+  selectMoney(e){
+    var moneys = e.target.dataset.moneys
+    this.setData({
+      moneys
+    })
+  },
+  getParams(){
+    let params ={};
+    if (this.data.commander.value){
+      params.cartype = this.data.commander.value
+    }
+    if (this.data.moneys.value){
+      params.money = this.data.moneys.value
+    }
+    return params;
   },
   sureSelect: function() {
     var that = this;
-
-    this.setData({
-      selestValue: that.data.commander.text,
-      carTypeOpen: false,
-      carTypeShow: true,
-      shownavindex:0
+    let params =  this.getParams();
+    console.log(params);
+    this.carQuery(params).then(res=>{
+      this.setData({
+        selestValue: that.data.commander.text||'',
+        money:this.data.moneys.text,
+        carTypeOpen: false,
+        shownavindex: 0,
+        moneyOpen:false,
+        
+      })
     })
+    
   },
-  seeDetail: function() {
+  seeDetail: function(e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/tab1/carDetail/carDetail',
+      url: `/pages/tab1/carDetail/carDetail?_id=${id}`
     })
   },
   wantBuyDetail: function() {

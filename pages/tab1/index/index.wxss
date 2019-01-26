@@ -78,7 +78,7 @@ swiper {
 }
 
 .nav-title {
-  width: 120px;
+  width: 100px;
   padding-left: 10px;
   font-size: 15px;
   line-height: 40px;
@@ -115,44 +115,19 @@ swiper {
   -moz-transform: rotate(90deg);
 }
 
-@keyframes slidown {
-  from {
-    transform: translateY(-100%);
-  }
-
-  to {
-    transform: translateY(0%);
-  }
-}
 
 .slidown {
-  display: block;
-  animation: slidown 0.2s ease-in both;
+    transform: translateY(0);
 }
-
-@keyframes slidup {
-  from {
-    transform: translateY(0%);
-  }
-
-  to {
-    transform: translateY(-100%);
-  }
-}
-
 .tempheight {
   height: 300rpx;
   overflow-y: auto;
 }
 
 .slidup {
-  display: block;
-  animation: slidup 0.2s ease-in both;
+   transform: translateY(-1500px);
 }
 
-.disappear {
-  display: none;
-}
 
 .sdbitem {
   width: 179rpx;
@@ -173,9 +148,10 @@ swiper {
   height: 240px;
   background: #fff;
   color: #666;
-  position: relative;
+  position: absolute;
   z-index: 4;
   font-size: 14px;
+ 
 }
 
 .commanders {

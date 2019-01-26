@@ -27,21 +27,22 @@
   </view>
 </view>
 
-<view class="page-container">
+<view class="page-container  " >
   <view class="nav fw-600">
     <view class="nav-title">筛选</view>
     <view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listpx" data-nav="1">
-      <view class="ds-line content cr-red">{{condition1}}</view>
+      <view class="ds-line content ">{{condition1}}</view>
       <view class="icon {{selestValue ? 'hasValue' : ''}}"></view>
       <text class='cr-red f14 ft-normal'>{{selestValue}}</text>
     </view>
-    <view class="nav-son {{shownavindex == 2? 'active' : ''}}" data-nav="2">
+    <view class="nav-son {{shownavindex == 2? 'active' : ''}}" bindtap="listpx" data-nav="2">
       <view class="ds-line content">{{condition2}}</view>
       <view class="icon"></view>
+        <text class='cr-red f14 ft-normal'>{{money}}</text>
     </view>
   </view>
 
-  <view class="dropdown-content {{carTypeOpen ? 'slidown' : 'slidup'}} {{carTypeShow ? 'disappear':''}}">
+  <view class="dropdown-content {{carTypeOpen ? 'slidown' : 'slidup'}} ">
     <view class='tempheight'>
       <view class="commanders">
         <block wx:for="{{commanders}}" wx:key="unique">
@@ -53,6 +54,20 @@
     </view>
     <button class="sure-btn" type="primary" bindtap="sureSelect">确定</button>
   </view>
+
+  <view class="dropdown-content {{moneyOpen ? 'slidown' : 'slidup'}} ">
+    <view class='tempheight'>
+      <view class="commanders">
+        <block wx:for="{{moneyRangeList}}" wx:key="unique">
+          <view class="sdbitem {{moneys.value===item.value ? ' active ' : ' '}}" data-moneys='{{item}}' bindtap='selectMoney'>
+            {{item.text}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <button class="sure-btn" type="primary" bindtap="sureSelect">确定</button>
+  </view>
+
 
   <view class="car-list">
     <view   wx:for="{{carData}}" wx:for-item="item" wx:key="key" class="car-list-item ds-flex ">

@@ -109,8 +109,11 @@ Page({
   formSubmit(e) {
     console.log('eeee',e);
     let params = e.detail.value;
+    if(params.money){
+      params.money = params.money*1;
+    }
     params.imgs = this.data.imageList;
-    
+  
     API.post('carAdd',params,(res)=>{
       console.log(res);
       wx.showModal({
@@ -130,9 +133,16 @@ Page({
     })
 
   },
-  allDelImgs(){
+  allDelImgs(){ 
+    let imageList = [...this.data.imageList];
     let params = {
-      imgs:this.data.imageList
+      imgs: imageList
     }
+    API.delete('carDeleteMulti',params,(res)=>{
+      console.log(res);
+      this.setData({imageList:[]})
+    },(err)=>{
+      console.log(err);
+    })
   },
 })

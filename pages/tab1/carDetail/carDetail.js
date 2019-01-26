@@ -7,14 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    detailData:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options);
+     API.get('carDetails',options,(res)=>{
+        console.log(res);
+    })
   },
 
   /**
