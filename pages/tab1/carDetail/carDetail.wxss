@@ -1,7 +1,16 @@
-.car-image{
-  width:100%;
+
+swiper {
+ width:100%;
   height:200px;
 }
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
 .car-title{
   background-color: white;
   height:70px;

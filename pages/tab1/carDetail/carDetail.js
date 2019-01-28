@@ -7,6 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    indicatorDots: false,
+    autoplay: false,
+    current:0,
+    interval: 5000,
+    duration: 1000,
     detailData:{}
   },
 
@@ -17,9 +22,13 @@ Page({
     console.log(options);
      API.get('carDetails',options,(res)=>{
         console.log(res);
+        this.setData({detailData:res.data[0]})
     })
   },
 
+  swiperChange(e){
+    console.log(e);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

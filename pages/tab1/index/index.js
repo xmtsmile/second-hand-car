@@ -24,7 +24,7 @@ Page({
     carData:[],
     moneys:{},
     moneyRangeList: dataHelper.moneyRange,
-    moneyRange: null,
+    money:'',
     moneyOpen:false
   },
 
@@ -190,8 +190,8 @@ Page({
     console.log(params);
     this.carQuery(params).then(res=>{
       this.setData({
-        selestValue: that.data.commander.text||'',
-        money:this.data.moneys.text,
+        selestValue: that.data.commander.text||' ',
+        money:this.data.moneys.text||' ',
         carTypeOpen: false,
         shownavindex: 0,
         moneyOpen:false,

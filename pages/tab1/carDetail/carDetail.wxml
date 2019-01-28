@@ -1,5 +1,13 @@
 <view class="car-detail">
-  <image class="car-image" src="../../../images/banner/banner1.png" />
+  <view>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}"  interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+    <block wx:if="{{detailData.imgs}}" wx:for="{{detailData.imgs}}" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  </view>
   <view class="car-title">
     <text class="fw-600 mb-10">丰田普拉多2016款 2.7L自动挡</text>
     <view class="ds-flex title-detail ft-14 dark-color mt-20">
